@@ -1,0 +1,54 @@
+{
+    "name": "reedware/package-skeleton-php",
+    "description": "A skeleton repository for Reedware Laravel Packages",
+    "keywords": [
+        "reedware"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tyler Reed",
+            "email": "tylernathanreed@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.5",
+        "php-coveralls/php-coveralls": "^2.4",
+        "phpunit/phpunit": "^10.5|^11.5|^12.1",
+        "symfony/var-dumper": "^6.4.4|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Reedware\\Skeleton\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Reedware\\Skeleton\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test:coverage": [
+            "@test:suite",
+            "php-coveralls -v --dry-run"
+        ],
+        "test:static": "phpstan",
+        "test:style": "pint --test",
+        "test:style-fix": "pint",
+        "test:suite": "phpunit",
+        "test": [
+            "@test:style",
+            "@test:static",
+            "@test:coverage"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
